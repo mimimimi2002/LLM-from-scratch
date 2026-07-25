@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-from-scratch"
+version = "0.1.0"
+description = "Build a Large Language Model From Scratch — 自前実装 (ch02-ch05)"
+requires-python = ">=3.9"
+dependencies = [
+    "torch",
+    "tiktoken",
+    "numpy",
+    "tqdm",
+    "requests",
+]
+
+[project.optional-dependencies]
+# plot_losses() 用
+plot = ["matplotlib"]
+# GPT-2 公式重み (TensorFlow checkpoint) の読み込み用
+gpt2 = [
+    "tensorflow>=2.16.2,<2.18; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    "tensorflow>=2.18.0; sys_platform != 'darwin' or platform_machine != 'x86_64'",
+]
+
+# src layout:
+[tool.setuptools.packages.find]
+where = ["src"]
