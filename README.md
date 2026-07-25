@@ -12,9 +12,9 @@ conda activate llms
 pip install -r requirements.txt
 ```
 
-### (任意) パッケージとして開発インストール
+### Install as llm-from-scratch as a package
 ```
-pip install -e .          # src/llm_from_scratch を import 可能にする
+pip install -e .
 ```
 
 ### Check environment libraries
@@ -25,17 +25,16 @@ python python_environment_check.py
 ## Directory layout
 
 ```
-src/llm_from_scratch/     自前実装パッケージ
-  tokenizer.py    (ch02)  正規表現ベースの簡易トークナイザ
-  dataloader.py   (ch02)  スライディングウィンドウで (input, target) を作る DataLoader
+src/llm_from_scratch/     Package
+  tokenizer.py    (ch02)  Simple tokenizer with regexp
+  dataloader.py   (ch02)  Create (input, target) DataLoader using sliding window
   attention.py    (ch03)  Self / Causal / MultiHead attention
-  model.py        (ch04)  GPTModel 本体 (TransformerBlock, LayerNorm, GELU, FeedForward)
-  training.py     (ch05)  学習ループ・損失計算・温度/top-k サンプリング付き生成
+  model.py        (ch04)  GPTModel (TransformerBlock, LayerNorm, GELU, FeedForward)
+  training.py     (ch05)  trainig loop・loss calc・temperature/top-k
 scripts/
-  train.py                学習 CLI エントリポイント
-  generate.py             生成 CLI エントリポイント
+  train.py
+  generate.py
 data/book.txt             学習用テキスト
-models/model.pth          学習済み重み (git 管理外)
 pyproject.toml            src レイアウトのパッケージ定義
 ```
 
@@ -91,7 +90,7 @@ python scripts/train.py \
 ## Generate from a trained model
 
 ```
-python scripts/generate.py --prompt "Every effort moves you" --max-new-tokens 80 --temperature 1.2 --top-k 40
+python generate.py --prompt "Every effort moves you" --max-new-tokens 80 --temperature 1.2 --top-k 40
 ```
 
 ## ライブラリとして使う
