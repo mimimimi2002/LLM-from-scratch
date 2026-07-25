@@ -9,7 +9,7 @@ class GPTDataset(Dataset):
 
     token_ids = tokenizer.encode(txt)
 
-    for i in range(0, len(txt) - max_length, stride):
+    for i in range(0, len(token_ids) - max_length, stride):
       self.input_ids.append(token_ids[i: i + max_length])
       self.target_ids.append(token_ids[i + stride: i + max_length + stride])
 
@@ -32,7 +32,7 @@ def create_dataloader(txt, batch_size=4, max_length=256,
     batch_size=batch_size,
     shuffle=shuffle,
     drop_last=drop_last,
-    num_workers=0
+    num_workers=num_workers
   )
   return dataloader
 
