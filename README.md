@@ -87,6 +87,37 @@ python scripts/train.py \
   --output_dir model_checkpoints
 ```
 
+## Train envs
+
+- **GPU**: RTX 3090 24GB
+- **Dataset**: Project Gutenberg — 57GB, 50,896 files
+
+### Hyperparameters
+
+| 項目 | 値 |
+|---|---|
+| batch size | 4 |
+| epochs | 1 |
+| optimizer | AdamW (`lr=5e-4`, `weight_decay=0.1`) |
+| context length / stride | 1024 / 1024（非オーバーラップ） |
+| train / val split | 0.90 / 0.10（book 単位で毎回作り直し） |
+| eval freq | 100 step |
+| seed | 123 |
+
+### Model config
+
+`GPT_CONFIG_124M`（[src/llm_from_scratch/model.py](src/llm_from_scratch/model.py)）
+
+| key | 値 | 意味 |
+|---|---|---|
+| `vocab_size` | 50257 | 語彙数（GPT-2 BPE） |
+| `context_length` | 1024 | コンテキスト長 |
+| `emb_dim` | 768 | 埋め込み次元 |
+| `n_heads` | 12 | attention ヘッド数 |
+| `n_layers` | 12 | Transformer ブロック数 |
+| `drop_rate` | 0.1 | ドロップアウト率 |
+| `qkv_bias` | False | Q/K/V 線形層のバイアス |
+
 ## Generate from a trained model
 
 ```
