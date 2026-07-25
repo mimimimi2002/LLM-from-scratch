@@ -49,6 +49,45 @@ python scripts/train.py --prompt "Every effort moves you"
 
 学習中は epoch ごとにサンプル生成が表示され、終了後に重みが `models/model.pth` に保存される。
 
+## Train a GOT on Project Gutenberg Dataset
+1. Clone `gutenberg` dataset
+```
+git clone https://github.com/pgcorpus/gutenberg.git
+```
+
+2. Navigate to reposigory
+```
+cd gutenberg
+```
+
+3. Install required packages
+```
+pip install -r requirements.txt
+```
+
+4. Download data
+```
+python get_data.py
+cd ..
+```
+
+5. Prepare dataset
+```
+python scripts/prepare_dataset.py \
+  --data_dir gutenberg/data/raw \
+  --max_size_mb 500 \
+  --output_dir gutenberg_preprocessed
+```
+
+6. Run train script
+```
+python scripts/train.py \
+  --data_dir "gutenberg_preprocessed" \
+  --n_epochs 1 \
+  --batch_size 4 \
+  --output_dir model_checkpoints
+```
+
 ## Generate from a trained model
 
 ```
