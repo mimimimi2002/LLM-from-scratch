@@ -26,6 +26,11 @@ from .training import (
     train_model_simple,
     plot_losses,
 )
+from .pretrained import (
+    download_and_load_gpt2,
+    load_gpt2_params_from_tf_ckpt,
+    load_weights_into_gpt,
+)
 
 __all__ = [
     "SimpleTokenizer", "UNK", "EOT",
@@ -35,4 +40,5 @@ __all__ = [
     "generate_text_simple", "text_to_token_ids", "token_ids_to_text",
     "calc_loss_batch", "calc_loss_loader", "evaluate_model", "generate_and_print_sample",
     "generate", "train_model_simple", "plot_losses",
+    "download_and_load_gpt2", "load_gpt2_params_from_tf_ckpt", "load_weights_into_gpt",
 ]
