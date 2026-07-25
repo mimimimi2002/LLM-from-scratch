@@ -1,9 +1,3 @@
-"""学習済み重み (models/model.pth) を読み込んでテキスト生成する CLI。
-
-使い方:
-    python scripts/generate.py --prompt "Every effort moves you"
-"""
-
 import argparse
 import os
 import sys

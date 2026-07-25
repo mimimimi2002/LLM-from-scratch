@@ -1,5 +1,3 @@
-"""ch02: スライディングウィンドウで (input, target) を作る DataLoader。"""
-
 import torch
 from torch.utils.data import Dataset, DataLoader
 import tiktoken

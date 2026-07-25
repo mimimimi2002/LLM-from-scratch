@@ -1,5 +1,3 @@
-"""ch03: 自己注意の実装 (SelfAttention -> CausalAttention -> MultiHeadAttention)。"""
-
 import torch
 import torch.nn as nn
 

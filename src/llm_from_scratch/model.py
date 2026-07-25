@@ -1,5 +1,3 @@
-"""ch04: GPT モデル本体 (TransformerBlock, LayerNorm, GELU, FeedForward)。"""
-
 import torch
 import torch.nn as nn
 

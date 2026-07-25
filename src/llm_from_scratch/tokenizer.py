@@ -1,5 +1,3 @@
-"""ch02: 正規表現ベースの簡易トークナイザ (SimpleTokenizerV2 相当)。"""
-
 import re
 
 UNK = "<|unk|>"

@@ -1,11 +1,3 @@
-"""book.txt 上で小さな GPT を自前学習し、生成デモ + 重み保存まで行う CLI。
-
-使い方:
-    python scripts/train.py                    # デフォルト設定で学習
-    python scripts/train.py --num-epochs 20
-    python scripts/train.py --prompt "Every effort"
-"""
-
 import argparse
 import os
 import sys

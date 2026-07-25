@@ -1,5 +1,3 @@
-"""ch05: 学習ループ・損失計算・温度/top-k サンプリング付き生成。"""
-
 import torch
 
 from .model import generate_text_simple, text_to_token_ids, token_ids_to_text
