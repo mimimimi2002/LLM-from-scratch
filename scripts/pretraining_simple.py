@@ -20,9 +20,9 @@ import torch
 
 # For llms_from_scratch installation instructions, see:
 # https://github.com/rasbt/LLMs-from-scratch/tree/main/pkg
-from llms_from_scratch.ch02 import create_dataloader_v1
-from llms_from_scratch.ch04 import GPTModel
-from llms_from_scratch.ch05 import calc_loss_batch, evaluate_model, plot_losses, generate_and_print_sample
+from llm_from_scratch import create_dataloader
+from llm_from_scratch import GPTModel
+from llm_from_scratch import calc_loss_batch, evaluate_model, plot_losses, generate_and_print_sample
 
 
 def read_text_file(file_path):
@@ -33,7 +33,7 @@ def read_text_file(file_path):
 
 def create_dataloaders(text_data, train_ratio, batch_size, max_length, stride, num_workers=0):
     split_idx = int(train_ratio * len(text_data))
-    train_loader = create_dataloader_v1(
+    train_loader = create_dataloader(
         text_data[:split_idx],
         batch_size=batch_size,
         max_length=max_length,
@@ -42,7 +42,7 @@ def create_dataloaders(text_data, train_ratio, batch_size, max_length, stride, n
         shuffle=True,
         num_workers=num_workers
     )
-    val_loader = create_dataloader_v1(
+    val_loader = create_dataloader(
         text_data[split_idx:],
         batch_size=batch_size,
         max_length=max_length,
