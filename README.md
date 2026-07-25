@@ -49,7 +49,7 @@ python scripts/train.py --prompt "Every effort moves you"
 
 学習中は epoch ごとにサンプル生成が表示され、終了後に重みが `models/model.pth` に保存される。
 
-## Train a GOT on Project Gutenberg Dataset
+## Train a GPT on Project Gutenberg Dataset
 1. Clone `gutenberg` dataset
 ```
 git clone https://github.com/pgcorpus/gutenberg.git
