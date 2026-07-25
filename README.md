@@ -1,7 +1,7 @@
 # LLM-from-scratch
 
 「[Build a Large Language Model From Scratch](https://github.com/rasbt/LLMs-from-scratch)」を
-章ごとに自前実装したもの。tokenizer から GPT 本体・学習ループまでを `src/llm_from_scratch/` にパッケージ化している。
+章ごとに実装。tokenizer から GPT 本体・学習ループまでを `src/llm_from_scratch/` にパッケージ化している。
 
 ## Environment set up (conda)
 
@@ -16,7 +16,6 @@ pip install -r requirements.txt
 ```
 pip install -e .          # src/llm_from_scratch を import 可能にする
 ```
-インストールしない場合でも、`scripts/` のエントリスクリプトは自動で `src/` を検索パスに追加するのでそのまま実行できる。
 
 ### Check environment libraries
 ```
@@ -40,9 +39,6 @@ models/model.pth          学習済み重み (git 管理外)
 pyproject.toml            src レイアウトのパッケージ定義
 ```
 
-> 参考: `llms_from_scratch/`（参照実装 [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) の pkg）と
-> ルートの `train.py` / `generate.py` は旧実装として残してある。新しい自前実装は上記 `src/` 側。
-
 ## Train a GPT on book.txt
 
 ```
@@ -53,16 +49,11 @@ python scripts/train.py --prompt "Every effort moves you"
 
 学習中は epoch ごとにサンプル生成が表示され、終了後に重みが `models/model.pth` に保存される。
 
-> メモ: デフォルトは GPT-2 (124M) 相当の構成。小さな本を過学習気味に暗記するデモ。
-> CPU/MPS では時間がかかるので、まず動作確認したい場合は `--num-epochs 1` で試すとよい。
-
 ## Generate from a trained model
 
 ```
 python scripts/generate.py --prompt "Every effort moves you" --max-new-tokens 80 --temperature 1.2 --top-k 40
 ```
-
-`scripts/train.py` と同じモデル構成でないと重みを読み込めない点に注意。
 
 ## ライブラリとして使う
 
