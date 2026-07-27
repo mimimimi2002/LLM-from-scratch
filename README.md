@@ -118,6 +118,11 @@ python scripts/train.py \
 | `drop_rate` | 0.1 | ドロップアウト率 |
 | `qkv_bias` | False | Q/K/V 線形層のバイアス |
 
+## Train process
+This is the train process until 200k step.
+<img width="690" height="335" alt="スクリーンショット 2026-07-27 23 23 43" src="https://github.com/user-attachments/assets/416a74b4-9f37-48b1-b533-8f35991e4c85" />
+
+
 ## Generate from a trained model
 
 ```
