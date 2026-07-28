@@ -119,8 +119,10 @@ python scripts/train.py \
 | `qkv_bias` | False | Q/K/V 線形層のバイアス |
 
 ## Train process
-This is the train process until 200k step.
-<img width="690" height="335" alt="スクリーンショット 2026-07-27 23 23 43" src="https://github.com/user-attachments/assets/416a74b4-9f37-48b1-b533-8f35991e4c85" />
+This is the train process until 300k step.
+<img width="2100" height="1050" alt="training_loss" src="https://github.com/user-attachments/assets/edc6c02b-f001-4903-b7ef-57d63163b57c" />
+
+
 
 
 ## Generate from a trained model
